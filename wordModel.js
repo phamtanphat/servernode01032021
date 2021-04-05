@@ -20,9 +20,19 @@ const Word = mongoose.model('Word', {
 // .catch(error => console.log(error))
 
 // INSERT
-const newWord = new Word({ en: 'One', vn: 'Một' });
-newWord.save()
+// const newWord = new Word({ en: 'One', vn: 'Một' });
+// newWord.save()
+// .then(word => console.log(word))
+// .catch(error => {
+//     if (error.code === 11000) return console.log(new Error("Duplicate").message)
+// })
+
+// UPDATE
+// Word.findByIdAndUpdate('606b10fe3562f406396adbc0',{isMemorized : true} , {new : true})
+// .then(word => console.log(word))
+// .catch(error => console.log(error))
+
+// DELETE
+Word.findByIdAndRemove('606b10fe3562f406396adbc0')
 .then(word => console.log(word))
-.catch(error => {
-    if (error.code === 11000) return console.log(new Error("Duplicate").message)
-})
+.catch(error => console.log(error))
