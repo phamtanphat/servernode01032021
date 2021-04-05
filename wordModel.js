@@ -5,7 +5,16 @@ mongoose.connect('mongodb+srv://abc:kjqVOHsDhByvY0pw@cluster0.corvi.mongodb.net/
                         useUnifiedTopology: true 
                     });
 
-const Cat = mongoose.model('Cat', { name: String });
+const Word = mongoose.model('Word', { 
+    en: { type: String, required: true, lowercase: true, unique: true, trim : true },
+    vn: { type: String, required: true, unique: true, trim : true },
+    isMemorized: { type: Boolean, required: true , default : false}
+});
 
-const kitty = new Cat({ name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
+const newWord = new Word({en : 'One' , vn : 'Một'});
+
+// kitty.save().then(() => console.log('meow'));
+// SELECT ALl
+Word.find({})
+.then(words => console.log(words))
+.catch(error => console.log(error))
