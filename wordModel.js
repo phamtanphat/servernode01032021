@@ -11,6 +11,8 @@ const Word = mongoose.model('Word', {
     isMemorized: { type: Boolean, required: true , default : false}
 });
 
+module.exports = Word
+
 
 
 // kitty.save().then(() => console.log('meow'));
@@ -33,6 +35,6 @@ const Word = mongoose.model('Word', {
 // .catch(error => console.log(error))
 
 // DELETE
-Word.findByIdAndRemove('606b10fe3562f406396adbc0')
-.then(word => console.log(word))
-.catch(error => console.log(error))
+// Word.findByIdAndRemove('606b10fe3562f406396adbc0')
+// .then(word => console.log(word))
+// .catch(error => console.log(error))
